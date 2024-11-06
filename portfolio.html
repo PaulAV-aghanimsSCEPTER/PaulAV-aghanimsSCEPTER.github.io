@@ -1,349 +1,365 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your Name - Portfolio</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-       
-        <style>
-            :root {
-                --primary: hsl(222.2 47.4% 11.2%);
-                --primary-foreground: hsl(210 40% 98%);
-                --background: hsl(0 0% 100%);
-                --foreground: hsl(222.2 47.4% 11.2%);
-                --muted: hsl(210 40% 96.1%);
-                --muted-foreground: hsl(215.4 16.3% 46.9%);
-                --accent: hsl(210 40% 96.1%);
-                --accent-foreground: hsl(222.2 47.4% 11.2%);
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Andrei Vicente - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: hsl(222.2 47.4% 11.2%);
+            --primary-foreground: hsl(210 40% 98%);
+            --background: hsl(0 0% 100%);
+            --foreground: hsl(222.2 47.4% 11.2%);
+            --muted: hsl(210 40% 96.1%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(210 40% 96.1%);
+            --accent-foreground: hsl(222.2 47.4% 11.2%);
+        }
 
-            @media (prefers-color-scheme: dark) {
-                :root {
-                    --primary: hsl(210 40% 98%);
-                    --primary-foreground: hsl(222.2 47.4% 11.2%);
-                    --background: hsl(222.2 47.4% 11.2%);
-                    --foreground: hsl(210 40% 98%);
-                    --muted: hsl(217.2 32.6% 17.5%);
-                    --muted-foreground: hsl(215 20.2% 65.1%);
-                    --accent: hsl(217.2 32.6% 17.5%);
-                    --accent-foreground: hsl(210 40% 98%);
-                }
-            }
+        .dark {
+            --primary: hsl(210 40% 98%);
+            --primary-foreground: hsl(222.2 47.4% 11.2%);
+            --background: hsl(222.2 47.4% 11.2%);
+            --foreground: hsl(210 40% 98%);
+            --muted: hsl(217.2 32.6% 17.5%);
+            --muted-foreground: hsl(215 20.2% 65.1%);
+            --accent: hsl(217.2 32.6% 17.5%);
+            --accent-foreground: hsl(210 40% 98%);
+        }
 
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            body {
-                font-family: 'Inter', sans-serif;
-                background-color: var(--background);
-                color: var(--foreground);
-                line-height: 1.5;
-                padding: 2rem 1rem;
-            }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.5;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-            .container {
-                max-width: 64rem;
-                margin: 0 auto;
-            }
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
 
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 640px) {
             header {
-                display: flex;
+                flex-direction: row;
                 justify-content: space-between;
-                align-items: center;
-                margin-bottom: 3rem;
             }
+        }
 
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 640px) {
             h1 {
-                font-size: 2.5rem;
-                font-weight: 700;
+                margin-bottom: 0;
             }
+        }
 
-            .logo {
-                width: 6rem;
-                height: 6rem;
-                object-fit: contain;
-            }
+        .logo {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-            .section {
-                background-color: var(--accent);
-                border-radius: 0.5rem;
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            }
+        section {
+            background-color: var(--accent);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
 
-            h2 {
-                font-size: 1.5rem;
-                font-weight: 700;
-                margin-bottom: 1rem;
-                text-align: center;
-                color: var(--primary);
-            }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--primary);
+        }
 
-            .skills {
-                display: grid;
-                gap: 1rem;
-            }
+        .skills {
+            display: grid;
+            gap: 1rem;
+        }
 
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 640px) {
             .skill {
-                display: flex;
+                flex-direction: row;
                 align-items: center;
             }
+        }
 
+        .skill-name {
+            width: 100%;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 640px) {
             .skill-name {
                 width: 8rem;
-                font-weight: 600;
-                display: flex;
-                align-items: center;
+                margin-bottom: 0;
             }
+        }
 
-            .skill-name i {
-                margin-right: 0.5rem;
-            }
+        .skill-name i {
+            margin-right: 0.5rem;
+        }
 
-            .skill-bar {
-                flex-grow: 1;
-                height: 1rem;
-                background-color: var(--muted);
-                border-radius: 0.5rem;
-                overflow: hidden;
-            }
+        .skill-bar {
+            flex-grow: 1;
+            height: 1rem;
+            background-color: var(--muted);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
 
-            .skill-level {
-                height: 100%;
-                background-color: var(--primary);
-            }
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary);
+        }
 
+        .skill-percentage {
+            width: 100%;
+            text-align: left;
+            margin-top: 0.25rem;
+        }
+
+        @media (min-width: 640px) {
             .skill-percentage {
                 width: 3rem;
                 text-align: right;
+                margin-top: 0;
             }
+        }
 
-            .frameworks, .tools, .databases {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
+        .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
 
-            .tag {
-                background-color: var(--primary);
-                color: var(--primary-foreground);
-                padding: 0.25rem 0.75rem;
-                border-radius: 9999px;
-                font-size: 0.875rem;
-                font-weight: 500;
-                display: flex;
-                align-items: center;
-            }
+        .tag {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
 
-            .tag i {
-                margin-right: 0.5rem;
-            }
+        .tag i {
+            margin-right: 0.5rem;
+        }
 
-            .contact-links {
-                display: grid;
-                gap: 1rem;
-            }
+        .projects {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
 
-            .contact-link {
-                display: flex;
-                align-items: center;
-                color: var(--foreground);
-                text-decoration: none;
-            }
+        .project {
+            background-color: var(--muted);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
 
-            .contact-link i {
-                margin-right: 0.5rem;
-            }
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
 
-            .blog-posts, .projects {
-                display: grid;
-                gap: 1rem;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
+        .project-content {
+            padding: 1rem;
+        }
 
-            .blog-post, .project {
-                background-color: var(--muted);
-                border-radius: 0.5rem;
-                overflow: hidden;
-            }
+        .blog-post {
+            background-color: var(--muted);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
 
-            .blog-post img, .project img {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-            }
+        .contact-links {
+            display: grid;
+            gap: 1rem;
+        }
 
-            .blog-post-content, .project-content {
-                padding: 1rem;
-            }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            color: var(--foreground);
+            text-decoration: none;
+        }
 
-            @media (max-width: 640px) {
-                header {
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                }
+        .contact-link:hover {
+            text-decoration: underline;
+        }
 
-                .logo {
-                    margin-top: 1rem;
-                }
+        .contact-link i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Paul Andrei Vicente</h1>
+            <img src="logo.jpg" alt="Logo" class="logo">
+        </header>
 
-                .skill {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
+        <section>
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Paul Andrei Vicente, a passionate front-end enthusiast who loves music and design. 
+                I'm constantly exploring new ways to blend creativity with code, bringing fresh ideas to life on screen.
+                When I'm not practicing HTML, CSS, I'm likely jamming out to my favorite tunes or 
+                sketching new design concepts. 
+            </p>
+        </section>
 
-                .skill-name {
-                    width: 100%;
-                    margin-bottom: 0.5rem;
-                }
-
-                .skill-percentage {
-                    width: 100%;
-                    text-align: left;
-                    margin-top: 0.25rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <h1>Paul Andrei Vicente</h1>
-                <img src="logo.jpg" alt="Logo" class="logo">
-            </header>
-
-            <section class="section">
-                <h2>About Me</h2>
-                <p>Hi! I’m Paul Andrei Vicente , a passionate front-end enthusiast who loves music and design. 
-                    I’m constantly exploring new ways to blend creativity with code, bringing fresh ideas to life on screen.
-                    When I'm not practicing HTML, CSS, and JavaScript, I’m likely jamming out to my favorite tunes or 
-                    sketching new design concepts. This blog is a space to share my journey in web development, creativity, 
-                    and everything that inspires me along the way. Thanks for stopping by!</p>
-            </section>
-
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <div class="skill">
-                        <span class="skill-name"><i data-lucide="code"></i> HTML</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 70%;"></div>
-                        </div>
-                        <span class="skill-percentage">70%</span>
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill">
+                    <span class="skill-name"><i class="fas fa-code"></i> HTML</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 50%;"></div>
                     </div>
-                    <div class="skill">
-                        <span class="skill-name"><i data-lucide="palette"></i> CSS</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 80%;"></div>
-                        </div>
-                        <span class="skill-percentage">80%</span>
+                    <span class="skill-percentage">50%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name"><i class="fas fa-palette"></i> CSS</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 50%;"></div>
                     </div>
-                    <div class="skill">
-                        <span class="skill-name"><i data-lucide="file-code"></i> PHP</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 20%;"></div>
-                        </div>
-                        <span class="skill-percentage">20%</span>
+                    <span class="skill-percentage">50%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name"><i class="fas fa-file-code"></i> PHP</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 20%;"></div>
                     </div>
-                    <div class="skill">
-                        <span class="skill-name"><i data-lucide="layout"></i> Bootstrap</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 30%;"></div>
-                        </div>
-                        <span class="skill-percentage">30%</span>
+                    <span class="skill-percentage">20%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name"><i class="fas fa-th"></i> Bootstrap</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 30%;"></div>
                     </div>
-                    <div class="skill">
-                        <span class="skill-name"><i data-lucide="layout"></i> Web Designing</span>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 80%;"></div>
-                        </div>
-                        <span class="skill-percentage">80%</span>
+                    <span class="skill-percentage">30%</span>
+                </div>
+                <div class="skill">
+                    <span class="skill-name"><i class="fas fa-pencil-ruler"></i> Web Designing</span>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                    <span class="skill-percentage">80%</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Frameworks</h2>
+            <div class="tags">
+                <span class="tag"><i class="fas fa-th"></i> Bootstrap</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tools</h2>
+            <div class="tags">
+                <span class="tag"><i class="fab fa-github"></i> GitHub</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Databases</h2>
+            <div class="tags">
+                <span class="tag"><i class="fas fa-database"></i> MySQL</span>
+                <span class="tag"><i class="fas fa-database"></i> MongoDB</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="bh.jpg" alt="Project 1">
+                    <div class="project-content">
+                        <h3>Boardinghouse</h3>
+                        <p>A simple mock boarding house system using php</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2>Frameworks</h2>
-                <div class="frameworks">
-                    <span class="tag"><i data-lucide="layout"></i> Bootstrap</span>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Tools</h2>
-                <div class="tools">
-                    <span class="tag"><i data-lucide="github"></i> GitHub</span>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Databases</h2>
-                <div class="databases">
-                    <span class="tag"><i data-lucide="database"></i> MySQL</span>
-                    <span class="tag"><i data-lucide="database"></i> MongoDB</span>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Projects</h2>
-                <div class="projects">
-                    <div class="project">
-                        <img src="/placeholder.svg?height=150&width=250" alt="Project 1">
-                        <div class="project-content">
-                            <h3>Project 1</h3>
-                            <p>Short description of Project 1</p>
-                        </div>
-                    </div>
-                    <div class="project">
-                        <img src="/placeholder.svg?height=150&width=250" alt="Project 2">
-                        <div class="project-content">
-                            <h3>Project 2</h3>
-                            <p>Short description of Project 2</p>
-                        </div>
+                <div class="project">
+                    <img src="calcu.jpg" alt="Project 2">
+                    <div class="project-content">
+                        <h3>Scientific Calculator</h3>
+                        <p>Scientific calculator using c#</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section">
-                <h2>Blog</h2>
-                <div class="blog-posts">
-                    <div class="blog-post">
-                        <div class="blog-post-content">
-                            <p>My love for music fuels my creativity in front-end design. Just like a song, 
-                                a well-built website needs rhythm and balance—every line of code and design 
-                                choice working together to create a seamless experience. 
-                                I’m constantly practicing HTML, CSS, and JavaScript to bring my ideas to life on screen. 
-                                The journey has its challenges, but it’s always worth it! </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section>
+            <h2>Blog</h2>
+            <div class="blog-post">
+                <p>
+                    My love for music fuels my creativity in front-end design. Just like a song, 
+                    a well-built website needs rhythm and balance every line of code and design 
+                    choice working together to create a seamless experience. 
+                    I'm constantly practicing HTML, CSS, to bring my ideas to life on screen. 
+                    The journey has its challenges, but it's always worth it!
+                </p>
+            </div>
+        </section>
 
-            <section class="section">
-                <h2>Contact me</h2>
-                <div class="contact-links">
-                    <a href="paulandreivicente.email@example.com" class="contact-link">
-                        <i data-lucide="mail"></i> paulandreivicente.email@example.com
-                    </a>
-                    <a href="https://github.com/PaulAV-aghanimsSCEPTER" class="contact-link">
-                        <i data-lucide="github"></i> https://github.com/PaulAV-aghanimsSCEPTER
-                    </a>
-                    <a href="https://www.facebook.com/stygian.d3solator26/" class="contact-link">
-                        <i data-lucide="facebook"></i> https://www.facebook.com/stygian.d3solator26/
-                    </a>
-                </div>
-            </section>
-        </div>
-
-        <script>
-            lucide.createIcons();
-        </script>
-    </body>
-    </html>
+        <section>
+            <h2>Contact me</h2>
+            <div class="contact-links">
+                <a href="mailto:paulandreivicente.email@example.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> paulandreivicente.email@example.com
+                </a>
+                <a href="https://github.com/PaulAV-aghanimsSCEPTER" class="contact-link">
+                    <i class="fab fa-github"></i> https://github.com/PaulAV-aghanimsSCEPTER
+                </a>
+                <a href="https://www.facebook.com/stygian.d3solator26/" class="contact-link">
+                    <i class="fab fa-facebook"></i> https://www.facebook.com/stygian.d3solator26/
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
